@@ -8,4 +8,13 @@ IntelliJ에서 mongoDB가 아니라 mysql로 연결하려고 하는데 데이터
 - 이후에 #1-4 결과값을 구하기 위해 mysql에 statistic 스키마를 설정하고 sample 데이터베이스를 만들어서 샘플 값들을 입력하였습니다.
 - 하지만 localhost:9080/requests에 접속했을 때 아래와 같은 오류가 나와 데이터베이스에 연결되지 않았습니다.
 
+- 처음에는 acess denied for user 'admin'@'172.18.0.1'(using password: YES) 오류가 나와서
+  
+CREATE USER 'admin'@'172.18.0.1' IDENTIFIED BY 'admin';
+
+GRANT ALL PRIVILEGES ON statistic.* TO 'admin'@'172.18.0.1';
+
+FLUSH PRIVILEGES;
+로 비밀번호 재설정 및 권한부여를 했는데 맞게 한지 잘 모르겠습니다. 현재 최종 오류 상태 아래 첨부하겠습니다.
+
 <img width="1938" height="945" alt="1주차 데이터베이스 연결실패" src="https://github.com/user-attachments/assets/d4d48f5d-c8d1-4f99-8e3e-969d2d186046" />
